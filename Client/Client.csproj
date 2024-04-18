@@ -9,6 +9,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\add-file32.png" />
+    <None Remove="Images\briefcase32.png" />
+    <None Remove="Images\conveyor32.png" />
+    <None Remove="Images\equipment16px.png" />
+    <None Remove="Images\equipment32px.png" />
+    <None Remove="Images\excel32.png" />
+    <None Remove="Images\exit32.png" />
+    <None Remove="Images\Login32.png" />
+    <None Remove="Images\Logo PKX.jpg" />
+    <None Remove="Images\pen32.png" />
+    <None Remove="Images\Plus32.png" />
+    <None Remove="Images\powerpoint32.png" />
+    <None Remove="Images\Reload32.png" />
+    <None Remove="Images\Search.png" />
+    <None Remove="Images\Search32_icon.png" />
+    <None Remove="Images\word32.png" />
+    <None Remove="Images\Worker32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -16,6 +36,26 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Server_SIde\Server_SIde.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\add-file32.png" />
+    <Resource Include="Images\briefcase32.png" />
+    <Resource Include="Images\conveyor32.png" />
+    <Resource Include="Images\equipment16px.png" />
+    <Resource Include="Images\equipment32px.png" />
+    <Resource Include="Images\excel32.png" />
+    <Resource Include="Images\exit32.png" />
+    <Resource Include="Images\Login32.png" />
+    <Resource Include="Images\Logo PKX.jpg" />
+    <Resource Include="Images\pen32.png" />
+    <Resource Include="Images\Plus32.png" />
+    <Resource Include="Images\powerpoint32.png" />
+    <Resource Include="Images\Reload32.png" />
+    <Resource Include="Images\Search.png" />
+    <Resource Include="Images\Search32_icon.png" />
+    <Resource Include="Images\word32.png" />
+    <Resource Include="Images\Worker32.png" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,194 @@
+﻿<Window x:Class="Client.WorkShopWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        
+        Title="Основное окно" Height="1080" Width="1920" Icon="Images\equipment32px.png" WindowStyle="ThreeDBorderWindow" WindowState="Maximized" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" >
+
+    <Grid>
+
+        <Button Content="" HorizontalAlignment="Left" Margin="302,10,0,0" VerticalAlignment="Top" Width="32" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images\Search32_icon.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="32" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalContentAlignment="Right">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/exit32.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="861,10,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/word32.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="824,10,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/excel32.png"/>
+            </Button.Background>
+        </Button>
+
+        <TabControl Margin="10,51,0,0">
+            <TabItem Header="Сортовая Мельница">
+                <DataGrid>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Наименования оборудывания" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Год установки" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Добавить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Удалить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Редактирвоать" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Поставщик" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Статус" Binding="{Binding Path=Title}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Комбицех">
+                <DataGrid>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Наименования оборудывания" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Год установки" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Добавить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Удалить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Редактирвоать" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Поставщик" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Статус" Binding="{Binding Path=Title}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="2-ух секционная мельница">
+                <DataGrid>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Наименования оборудывания" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Год установки" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Добавить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Удалить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Редактирвоать" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Поставщик" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Статус" Binding="{Binding Path=Title}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Элеватор">
+                <DataGrid>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Наименования оборудывания" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Год установки" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Добавить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Удалить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Редактирвоать" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Поставщик" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Статус" Binding="{Binding Path=Title}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Склад ТХМ">
+                <DataGrid>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Наименования оборудывания" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Год установки" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Добавить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Удалить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Редактирвоать" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Поставщик" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Статус" Binding="{Binding Path=Title}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Склад БХМ">
+                <DataGrid>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Наименования оборудывания" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Год установки" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Добавить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Удалить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Редактирвоать" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Поставщик" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Статус" Binding="{Binding Path=Title}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Склад готовой продукции">
+                <DataGrid>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Наименования оборудывания" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Год установки" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Добавить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Удалить" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Редактирвоать" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Поставщик" Binding="{Binding Path=Title}" />
+                        <DataGridTextColumn Header="Статус" Binding="{Binding Path=Title}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+
+        <Button Content="Добавить" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+
+        <Button Content="Удалить" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" />
+
+        <Button Content="Изменить" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top"/>
+
+        <TextBox HorizontalAlignment="Left" Margin="340,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="442"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="787,10,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Reload32.png"/>
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="898,7,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Worker32.png"/>
+            </Button.Background>
+            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Worker32.png"/>
+                </Button.Background>
+            </Button>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="935,7,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/briefcase32.png"/>
+            </Button.Background>
+            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Worker32.png"/>
+                </Button.Background>
+            </Button>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="972,7,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/conveyor32.png"/>
+            </Button.Background>
+            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/Worker32.png"/>
+                </Button.Background>
+            </Button>
+        </Button>
+
+    </Grid>
+</Window>

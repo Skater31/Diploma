@@ -29,14 +29,14 @@ namespace Client
             var user = new User
             {
                 Login = textBoxLogin.Text,
-                Password = textBoxPassword.Text,
+                Password = textBoxPassword.Password,
             };
 
             var isAuth = await _authConnection.IsAuthenticated(user);
 
             if (isAuth)
             {
-                new pososi().Show();
+                new WorkShopWindow().Show();
 
                 Close();
             }

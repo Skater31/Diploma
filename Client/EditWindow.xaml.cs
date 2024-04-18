@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Client
 {
     /// <summary>
-    /// Interaction logic for pososi.xaml
+    /// Interaction logic for EditWindow.xaml
     /// </summary>
-    public partial class pososi : Window
+    public partial class EditWindow : Window
     {
-        public pososi()
+        public EditWindow()
         {
             InitializeComponent();
         }
