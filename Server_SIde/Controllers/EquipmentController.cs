@@ -21,8 +21,9 @@ namespace Server_SIde.Controllers
             return _equipmentService.GetAllEquipment();
         }
 
-        [HttpGet]
-        public async Task<Equipment> GetById(int id)
+        [HttpPost]
+        [Route("getById")]
+        public async Task<Equipment> GetById([FromBody] int id)
         {
             return _equipmentService.GetById(id);
         }
@@ -39,6 +40,20 @@ namespace Server_SIde.Controllers
         public void Edit(Equipment equipment)
         {
             _equipmentService.Edit(equipment);
+        }
+
+        [HttpPost]
+        [Route("delete")]
+        public void Delete(Equipment equipment)
+        {
+            _equipmentService.Delete(equipment);
+        }
+
+        [HttpPost]
+        [Route("find")]
+        public async Task<IEnumerable<Equipment>> Find([FromBody] string value)
+        {
+            return _equipmentService.Find(value);
         }
     }
 }

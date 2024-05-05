@@ -37,7 +37,7 @@ namespace Client
 
             if (tab.Name == "gristMill")
             {
-                new AddWindow(_equipmentConnection).Show();
+                new AddWindow(_equipmentConnection).ShowDialog();
             }
         }
 
@@ -47,13 +47,51 @@ namespace Client
 
             if (tab.Name == "gristMill")
             {
-                new EquipmentEditWindow(((Equipment)listViewGristMill.SelectedItem).Id, _equipmentConnection).Show();
+                var equipmnet = (Equipment)listViewGristMill.SelectedItem;
+
+                if (equipmnet != null)
+                {
+                    new EquipmentEditWindow(equipmnet.Id, _equipmentConnection).ShowDialog();
+                }
             }
         }
 
         private async Task LoadEquipment()
         {
             listViewGristMill.ItemsSource = await _equipmentConnection.GetAllEquipment();
+        }
+
+        private async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            var tab = (TabItem)tabControl.SelectedItem;
+
+            if (tab.Name == "gristMill")
+            {
+                listViewGristMill.ItemsSource = await _equipmentConnection.GetAllEquipment();
+            }
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var tab = (TabItem)tabControl.SelectedItem;
+
+            if (tab.Name == "gristMill")
+            {
+                _equipmentConnection.Delete((Equipment)listViewGristMill.SelectedItem);
+            }
+        }
+
+        private async void TextBoxFind_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && !string.IsNullOrEmpty(textBoxFind.Text))
+            {
+                listViewGristMill.ItemsSource = await _equipmentConnection.Find(textBoxFind.Text);
+            }
+
+            if (e.Key == Key.Enter && string.IsNullOrEmpty(textBoxFind.Text))
+            {
+                listViewGristMill.ItemsSource = await _equipmentConnection.GetAllEquipment();
+            }
         }
     }
 }

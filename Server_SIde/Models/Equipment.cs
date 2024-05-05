@@ -13,6 +13,6 @@ namespace Server_SIde.Models
         public DateTime? YearOfInstalation { get; set; }
 
         public int MarkId { get; set; }
-        public Mark Mark { get; set; }
+        public Mark? Mark { get; set; }
     }
 }

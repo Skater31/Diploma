@@ -76,5 +76,34 @@ namespace Client.Connection
 
             await _httpClient.PostAsync(_uri + "/edit", content);
         }
+
+        public async void Delete(Equipment equipment)
+        {
+            var sportItemSerialize = JsonConvert.SerializeObject(equipment);
+
+            var content = new StringContent(sportItemSerialize, Encoding.UTF8, "application/json");
+
+            await _httpClient.PostAsync(_uri + "/delete", content);
+        }
+
+        public async Task<IEnumerable<Equipment>> Find(string value)
+        {
+            var valueSerialize = JsonConvert.SerializeObject(value);
+
+            var content = new StringContent(valueSerialize, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync(_uri + "/find", content);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                var foundedEquipment = JsonConvert.DeserializeObject<IEnumerable<Equipment>>(responseContent);
+
+                return foundedEquipment;
+            }
+
+            return null;
+        }
     }
 }

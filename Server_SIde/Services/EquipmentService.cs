@@ -39,5 +39,36 @@ namespace Server_SIde.Services
             _applicationContext.Equipments.Update(equipment);
             _applicationContext.SaveChanges();
         }
+
+        public void Delete(Equipment equipment)
+        {
+            _applicationContext.Equipments.Remove(equipment);
+            _applicationContext.SaveChanges();
+        }
+
+        public IEnumerable<Equipment> Find(string value)
+        {
+            var foundEquipment = new List<Equipment>();
+
+            value = value.Trim().ToLower();
+
+            var equipment = _applicationContext.Equipments.Include("Mark").AsQueryable();
+
+            foreach (var equip in equipment)
+            {
+                if (equip.Id.ToString().Contains(value) ||
+                    equip.Name.ToLower().Contains(value) ||
+                    equip.InventoryNumber.ToString().Contains(value) ||
+                    equip.Price.ToString().Contains(value) ||
+                    equip.YearOfInstalation.ToString().Contains(value) ||
+                    equip.MarkId.ToString().Contains(value) ||
+                    equip.Mark.MarkName.ToLower().Contains(value))
+                {
+                    foundEquipment.Add(equip);
+                }
+            }
+
+            return foundEquipment;
+        }
     }
 }
