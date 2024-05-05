@@ -14,35 +14,40 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Client
+namespace Client.EditWindows
 {
-    public partial class AddWindow : Window
+    public partial class EquipmentEditWindow : Window
     {
         private readonly EquipmentConnection _equipmentConnection;
         private readonly MarkConnection _markConnection;
 
         private IEnumerable<Mark> Marks { get; set; }
+        private int EquipmentId { get; set; }
 
-        public AddWindow(EquipmentConnection equipmentConnection)
+        public EquipmentEditWindow(int equipmentId,EquipmentConnection equipmentConnection)
         {
             _equipmentConnection = equipmentConnection;
             _markConnection = new MarkConnection();
 
+            EquipmentId = equipmentId;
+
             InitializeComponent();
 
             LoadMarks();
+            LoadEquipment();
         }
 
-        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
             if (textboxName.Text != string.Empty &&
                 int.TryParse(textboxInventoryNumber.Text, out int invNum) &&
-                decimal.TryParse (textboxPrice.Text, out decimal price) &&
+                decimal.TryParse(textboxPrice.Text, out decimal price) &&
                 datePicker.Text != string.Empty &&
                 comboBoxMark.SelectedItem != null)
             {
                 var equipment = new Equipment
                 {
+                    Id = EquipmentId,
                     Name = textboxName.Text,
                     InventoryNumber = invNum,
                     Price = price,
@@ -50,9 +55,23 @@ namespace Client
                     MarkId = MarkNameToId(comboBoxMark.SelectedItem.ToString()),
                 };
 
-                _equipmentConnection.Add(equipment);
+                _equipmentConnection.Edit(equipment);
 
                 Close();
+            }
+        }
+
+        private async void LoadEquipment()
+        {
+            if (EquipmentId != 0)
+            {
+                var equipment = await _equipmentConnection.GetById(EquipmentId);
+
+                textboxName.Text = equipment.Name;
+                textboxInventoryNumber.Text = equipment.InventoryNumber.ToString();
+                textboxPrice.Text = equipment.Price.ToString();
+                datePicker.Text = equipment.YearOfInstalation.ToString();
+                comboBoxMark.SelectedItem = equipment.Mark.MarkName;
             }
         }
 

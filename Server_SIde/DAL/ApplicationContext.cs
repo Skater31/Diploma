@@ -7,9 +7,11 @@ namespace Server_SIde.DAL
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
-            Database.EnsureCreated();
+
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Mark> Marks { get; set; }
+        public DbSet<Equipment> Equipments { get; set; }
     }
 }
