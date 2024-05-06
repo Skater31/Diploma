@@ -14,9 +14,9 @@ namespace Server_SIde.Services
             _applicationContext = applicationContext;
         }
 
-        public IEnumerable<Equipment> GetAllEquipment()
+        public IEnumerable<Equipment> GetAllEquipment(int workshopId)
         {
-            var equipments = _applicationContext.Equipments.Include("Mark").ToList();
+            var equipments = _applicationContext.Equipments.Include("Mark").Where(e => e.WorkshopId == workshopId).ToList();
 
             return equipments;
         }
@@ -46,13 +46,13 @@ namespace Server_SIde.Services
             _applicationContext.SaveChanges();
         }
 
-        public IEnumerable<Equipment> Find(string value)
+        public IEnumerable<Equipment> Find(string value, int workshopId)
         {
             var foundEquipment = new List<Equipment>();
 
             value = value.Trim().ToLower();
 
-            var equipment = _applicationContext.Equipments.Include("Mark").AsQueryable();
+            var equipment = _applicationContext.Equipments.Include("Mark").Where(e => e.WorkshopId == workshopId).AsQueryable();
 
             foreach (var equip in equipment)
             {

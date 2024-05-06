@@ -20,13 +20,15 @@ namespace Client
     {
         private readonly EquipmentConnection _equipmentConnection;
         private readonly MarkConnection _markConnection;
+        private readonly int _workshopId;
 
         private IEnumerable<Mark> Marks { get; set; }
 
-        public AddWindow(EquipmentConnection equipmentConnection)
+        public AddWindow(EquipmentConnection equipmentConnection, int worshopId)
         {
             _equipmentConnection = equipmentConnection;
             _markConnection = new MarkConnection();
+            _workshopId = worshopId;
 
             InitializeComponent();
 
@@ -48,6 +50,7 @@ namespace Client
                     Price = price,
                     YearOfInstalation = datePicker.DisplayDate,
                     MarkId = MarkNameToId(comboBoxMark.SelectedItem.ToString()),
+                    WorkshopId = _workshopId,
                 };
 
                 _equipmentConnection.Add(equipment);

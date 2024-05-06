@@ -11,8 +11,12 @@ var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
 
 builder.Services.AddTransient<IAuthService, AuthService>();
+builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 builder.Services.AddTransient<IEquipmentService, EquipmentService>();
+builder.Services.AddTransient<IFreeEquipmentService, FreeEquipmentService>();
 builder.Services.AddTransient<IMarkService, MarkService>();
+builder.Services.AddTransient<IPositionService, PositionService>();
+builder.Services.AddTransient<ISupplierService, SupplierService>();
 
 var app = builder.Build();
 

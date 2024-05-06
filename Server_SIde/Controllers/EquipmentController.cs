@@ -15,10 +15,11 @@ namespace Server_SIde.Controllers
             _equipmentService = equipmentService;
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<Equipment>> GetAllEquipmet()
+        [HttpPost]
+        [Route("getAllEquipment")]
+        public async Task<IEnumerable<Equipment>> GetAllEquipment([FromBody] int workshopId)
         {
-            return _equipmentService.GetAllEquipment();
+            return _equipmentService.GetAllEquipment(workshopId);
         }
 
         [HttpPost]
@@ -53,7 +54,9 @@ namespace Server_SIde.Controllers
         [Route("find")]
         public async Task<IEnumerable<Equipment>> Find([FromBody] string value)
         {
-            return _equipmentService.Find(value);
+            var val = value.Split('+');
+
+            return _equipmentService.Find(val[0], int.Parse(val[1]));
         }
     }
 }

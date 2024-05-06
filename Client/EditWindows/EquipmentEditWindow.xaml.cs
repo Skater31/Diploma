@@ -20,16 +20,18 @@ namespace Client.EditWindows
     {
         private readonly EquipmentConnection _equipmentConnection;
         private readonly MarkConnection _markConnection;
+        private readonly int _equipmentId;
+        private readonly int _workshopId;
 
         private IEnumerable<Mark> Marks { get; set; }
-        private int EquipmentId { get; set; }
 
-        public EquipmentEditWindow(int equipmentId,EquipmentConnection equipmentConnection)
+        public EquipmentEditWindow(EquipmentConnection equipmentConnection, int equipmentId, int workshopId)
         {
             _equipmentConnection = equipmentConnection;
             _markConnection = new MarkConnection();
 
-            EquipmentId = equipmentId;
+            _equipmentId = equipmentId;
+            _workshopId = workshopId;
 
             InitializeComponent();
 
@@ -47,12 +49,13 @@ namespace Client.EditWindows
             {
                 var equipment = new Equipment
                 {
-                    Id = EquipmentId,
+                    Id = _equipmentId,
                     Name = textboxName.Text,
                     InventoryNumber = invNum,
                     Price = price,
                     YearOfInstalation = datePicker.DisplayDate,
                     MarkId = MarkNameToId(comboBoxMark.SelectedItem.ToString()),
+                    WorkshopId = _workshopId,
                 };
 
                 _equipmentConnection.Edit(equipment);
@@ -63,9 +66,9 @@ namespace Client.EditWindows
 
         private async void LoadEquipment()
         {
-            if (EquipmentId != 0)
+            if (_equipmentId != 0)
             {
-                var equipment = await _equipmentConnection.GetById(EquipmentId);
+                var equipment = await _equipmentConnection.GetById(_equipmentId);
 
                 textboxName.Text = equipment.Name;
                 textboxInventoryNumber.Text = equipment.InventoryNumber.ToString();

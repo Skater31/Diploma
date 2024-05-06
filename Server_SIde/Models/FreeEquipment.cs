@@ -2,7 +2,7 @@
 
 namespace Server_SIde.Models
 {
-    public class Equipment
+    public class FreeEquipment
     {
         public int Id { get; set; }
         public string? Name { get; set; }
@@ -10,12 +10,11 @@ namespace Server_SIde.Models
 
         [Column(TypeName = "money")]
         public decimal? Price { get; set; }
-        public DateTime? YearOfInstalation { get; set; }
 
         public int MarkId { get; set; }
         public Mark? Mark { get; set; }
 
-        public int WorkshopId { get; set; }
-        public Workshop? Workshop { get; set; }
+        public int? WarehouseId { get; set; }
+        public Warehouse? Warehouse { get; set; }
     }
 }

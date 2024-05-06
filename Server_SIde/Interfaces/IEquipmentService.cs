@@ -4,7 +4,7 @@ namespace Server_SIde.Interfaces
 {
     public interface IEquipmentService
     {
-        IEnumerable<Equipment> GetAllEquipment();
+        IEnumerable<Equipment> GetAllEquipment(int workshopId);
 
         Equipment GetById(int id);
 
@@ -14,6 +14,6 @@ namespace Server_SIde.Interfaces
 
         void Delete(Equipment equipment);
 
-        IEnumerable<Equipment> Find(string value);
+        IEnumerable<Equipment> Find(string value, int workshopId);
     }
 }

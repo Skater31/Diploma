@@ -23,17 +23,21 @@ namespace Client.Connection
             _httpClient = new HttpClient();
         }
 
-        public async Task<IEnumerable<Equipment>> GetAllEquipment()
+        public async Task<IEnumerable<Equipment>> GetAllEquipment(int workshopId)
         {
-            var response = await _httpClient.GetAsync(_uri);
+            var valueSerialize = JsonConvert.SerializeObject(workshopId);
+
+            var content = new StringContent(valueSerialize, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync(_uri + "/getAllEquipment", content);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
 
-                var equipments = JsonConvert.DeserializeObject<IEnumerable<Equipment>>(responseContent);
+                var equipment = JsonConvert.DeserializeObject<IEnumerable<Equipment>>(responseContent);
 
-                return equipments;
+                return equipment;
             }
 
             return null;
@@ -86,9 +90,9 @@ namespace Client.Connection
             await _httpClient.PostAsync(_uri + "/delete", content);
         }
 
-        public async Task<IEnumerable<Equipment>> Find(string value)
+        public async Task<IEnumerable<Equipment>> Find(string value, int workshopId)
         {
-            var valueSerialize = JsonConvert.SerializeObject(value);
+            var valueSerialize = JsonConvert.SerializeObject(value + $"+{workshopId}");
 
             var content = new StringContent(valueSerialize, Encoding.UTF8, "application/json");
 

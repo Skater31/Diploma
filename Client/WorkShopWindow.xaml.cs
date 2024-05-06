@@ -33,65 +33,175 @@ namespace Client
 
         private void MainButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            var tab = (TabItem)tabControl.SelectedItem;
+           var tabItemName = ((TabItem)tabControl.SelectedItem).Name;
 
-            if (tab.Name == "gristMill")
+            switch (tabItemName)
             {
-                new AddWindow(_equipmentConnection).ShowDialog();
+                case "gristMill":
+                    new AddWindow(_equipmentConnection, 1).ShowDialog();
+                    break;
+
+                case "combine":
+                    new AddWindow(_equipmentConnection, 2).ShowDialog();
+                    break;
+
+                case "mill":
+                    new AddWindow(_equipmentConnection, 3).ShowDialog();
+                    break;
+
+                case "elevator":
+                    new AddWindow(_equipmentConnection, 4).ShowDialog();
+                    break;
+            }
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var tabItemName = ((TabItem)tabControl.SelectedItem).Name;
+
+            switch (tabItemName)
+            {
+                case "gristMill":
+                    if (listViewGristMill.SelectedItem != null)
+                    {
+                        _equipmentConnection.Delete((Equipment)listViewGristMill.SelectedItem);
+                    }
+                    
+                    break;
+
+                case "combine":
+                    if (listViewCombine.SelectedItem != null)
+                    {
+                        _equipmentConnection.Delete((Equipment)listViewCombine.SelectedItem);
+                    }
+
+                    break;
+
+                case "mill":
+                    if (listViewMill.SelectedItem != null)
+                    {
+                        _equipmentConnection.Delete((Equipment)listViewMill.SelectedItem);
+                    }
+
+                    break;
+
+                case "elevator":
+                    if (listViewElevator.SelectedItem != null)
+                    {
+                        _equipmentConnection.Delete((Equipment)listViewElevator.SelectedItem);
+                    }
+
+                    break;
             }
         }
 
         private void MainButtonEdit_Click(object sender, RoutedEventArgs e)
         {
-            var tab = (TabItem)tabControl.SelectedItem;
+            var tabItemName = ((TabItem)tabControl.SelectedItem).Name;
 
-            if (tab.Name == "gristMill")
+            switch (tabItemName)
             {
-                var equipmnet = (Equipment)listViewGristMill.SelectedItem;
+                case "gristMill":
+                    var equipGristMill = (Equipment)listViewGristMill.SelectedItem;
+                    new EquipmentEditWindow(_equipmentConnection, equipGristMill.Id, equipGristMill.WorkshopId).ShowDialog();
+                    break;
 
-                if (equipmnet != null)
+                case "combine":
+                    var equipCombine = (Equipment)listViewCombine.SelectedItem;
+                    new EquipmentEditWindow(_equipmentConnection, equipCombine.Id, equipCombine.Id).ShowDialog();
+                    break;
+
+                case "mill":
+                    var equipMill = (Equipment)listViewMill.SelectedItem;
+                    new EquipmentEditWindow(_equipmentConnection, equipMill.Id, equipMill.WorkshopId).ShowDialog();
+                    break;
+
+                case "elevator":
+                    var equipElevator = (Equipment)listViewElevator.SelectedItem;
+                    new EquipmentEditWindow(_equipmentConnection, equipElevator.Id, equipElevator.WorkshopId).ShowDialog();
+                    break;
+            }
+        }
+
+        private async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            var tabItemName = ((TabItem)tabControl.SelectedItem).Name;
+
+            switch (tabItemName)
+            {
+                case "gristMill":
+                    listViewGristMill.ItemsSource = await _equipmentConnection.GetAllEquipment(1);
+                    break;
+
+                case "combine":
+                    listViewCombine.ItemsSource = await _equipmentConnection.GetAllEquipment(2);
+                    break;
+
+                case "mill":
+                    listViewMill.ItemsSource = await _equipmentConnection.GetAllEquipment(3);
+                    break;
+
+                case "elevator":
+                    listViewElevator.ItemsSource = await _equipmentConnection.GetAllEquipment(4);
+                    break;
+            }
+        }
+
+        private async void TextBoxFind_KeyDown(object sender, KeyEventArgs e)
+        {
+            var tabItemName = ((TabItem)tabControl.SelectedItem).Name;
+
+            if (e.Key == Key.Enter && !string.IsNullOrEmpty(textBoxFind.Text))
+            {
+                switch (tabItemName)
                 {
-                    new EquipmentEditWindow(equipmnet.Id, _equipmentConnection).ShowDialog();
+                    case "gristMill":
+                        listViewGristMill.ItemsSource = await _equipmentConnection.Find(textBoxFind.Text, 1);
+                        break;
+
+                    case "combine":
+                        listViewCombine.ItemsSource = await _equipmentConnection.Find(textBoxFind.Text, 2);
+                        break;
+
+                    case "mill":
+                        listViewMill.ItemsSource = await _equipmentConnection.Find(textBoxFind.Text, 3);
+                        break;
+
+                    case "elevator":
+                        listViewElevator.ItemsSource = await _equipmentConnection.Find(textBoxFind.Text, 4);
+                        break;
+                }
+            }
+
+            if (e.Key == Key.Enter && string.IsNullOrEmpty(textBoxFind.Text))
+            {
+                switch (tabItemName)
+                {
+                    case "gristMill":
+                        listViewGristMill.ItemsSource = await _equipmentConnection.GetAllEquipment(1);
+                        break;
+
+                    case "combine":
+                        listViewCombine.ItemsSource = await _equipmentConnection.GetAllEquipment(2);
+                        break;
+
+                    case "mill":
+                        listViewMill.ItemsSource = await _equipmentConnection.GetAllEquipment(3);
+                        break;
+
+                    case "elevator":
+                        listViewElevator.ItemsSource = await _equipmentConnection.GetAllEquipment(4);
+                        break;
                 }
             }
         }
 
         private async Task LoadEquipment()
         {
-            listViewGristMill.ItemsSource = await _equipmentConnection.GetAllEquipment();
-        }
-
-        private async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            var tab = (TabItem)tabControl.SelectedItem;
-
-            if (tab.Name == "gristMill")
-            {
-                listViewGristMill.ItemsSource = await _equipmentConnection.GetAllEquipment();
-            }
-        }
-
-        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
-        {
-            var tab = (TabItem)tabControl.SelectedItem;
-
-            if (tab.Name == "gristMill")
-            {
-                _equipmentConnection.Delete((Equipment)listViewGristMill.SelectedItem);
-            }
-        }
-
-        private async void TextBoxFind_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter && !string.IsNullOrEmpty(textBoxFind.Text))
-            {
-                listViewGristMill.ItemsSource = await _equipmentConnection.Find(textBoxFind.Text);
-            }
-
-            if (e.Key == Key.Enter && string.IsNullOrEmpty(textBoxFind.Text))
-            {
-                listViewGristMill.ItemsSource = await _equipmentConnection.GetAllEquipment();
-            }
+            listViewGristMill.ItemsSource = await _equipmentConnection.GetAllEquipment(1);
+            listViewCombine.ItemsSource = await _equipmentConnection.GetAllEquipment(2);
+            listViewMill.ItemsSource = await _equipmentConnection.GetAllEquipment(3);
+            listViewElevator.ItemsSource = await _equipmentConnection.GetAllEquipment(4);
         }
     }
 }
