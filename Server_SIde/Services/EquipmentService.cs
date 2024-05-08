@@ -16,14 +16,18 @@ namespace Server_SIde.Services
 
         public IEnumerable<Equipment> GetAllEquipment(int workshopId)
         {
-            var equipments = _applicationContext.Equipments.Include("Mark").Where(e => e.WorkshopId == workshopId).ToList();
+            var equipments = _applicationContext.Equipments.
+                Include("Mark").
+                Where(e => e.WorkshopId == workshopId).ToList();
 
             return equipments;
         }
 
         public Equipment GetById(int id)
         {
-            var equipment = _applicationContext.Equipments.Include("Mark").FirstOrDefault(e => e.Id == id);
+            var equipment = _applicationContext.Equipments.
+                Include("Mark").
+                FirstOrDefault(e => e.Id == id);
 
             return equipment;
         }
@@ -52,7 +56,9 @@ namespace Server_SIde.Services
 
             value = value.Trim().ToLower();
 
-            var equipment = _applicationContext.Equipments.Include("Mark").Where(e => e.WorkshopId == workshopId).AsQueryable();
+            var equipment = _applicationContext.Equipments.
+                Include("Mark").
+                Where(e => e.WorkshopId == workshopId).AsQueryable();
 
             foreach (var equip in equipment)
             {

@@ -7,6 +7,8 @@ namespace Server_SIde.DAL
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
+            this.ChangeTracker.LazyLoadingEnabled = false;
+
             //Database.EnsureDeleted();
             //Database.EnsureCreated();
         }

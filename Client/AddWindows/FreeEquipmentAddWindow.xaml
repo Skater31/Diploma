@@ -1,24 +1,23 @@
-﻿<Window x:Class="Client.AddWindow"
+﻿<Window x:Class="Client.AddWindows.FreeEquipmentAddWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Client"
+        xmlns:local="clr-namespace:Client.AddWindows"
         mc:Ignorable="d"
-        Title="Добавить оборудывание" Height="450" Width="400"
-        WindowStartupLocation="CenterScreen" Icon="/Images/Plus32.png">
-
+        Title="FreeEquipmentAddWindow" Height="450" Width="400"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Button x:Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Center" Margin="0,344,0,0" VerticalAlignment="Top" Click="ButtonAdd_Click" />
         <TextBlock HorizontalAlignment="Left" Margin="66,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="90"><Run Text="Наименование оборудова"/><Run Language="ru-ru" Text="н"/><Run Text="ия "/></TextBlock>
         <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="176,51,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169"/>
         <TextBlock HorizontalAlignment="Left" Margin="60,111,0,0" TextWrapping="Wrap" Text="Инвентарный №" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="66,222,0,0" TextWrapping="Wrap" Text="Год установки" VerticalAlignment="Top"/>
-        <DatePicker Name="datePicker" HorizontalAlignment="Left" Margin="176,217,0,0" VerticalAlignment="Top" Width="169"/>
-        <TextBlock HorizontalAlignment="Left" Margin="66,160,0,0" TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top"/>
-        <TextBox x:Name="textboxPrice" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169" Margin="176,156,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="66,173,0,0" TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top"/>
+        <TextBox x:Name="textboxPrice" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169" Margin="176,169,0,0"/>
         <TextBox x:Name="textboxInventoryNumber" HorizontalAlignment="Left" Margin="176,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
         <TextBlock HorizontalAlignment="Left" Margin="66,283,0,0" TextWrapping="Wrap" Text="Марка" VerticalAlignment="Top"/>
         <ComboBox Name="comboBoxMark" HorizontalAlignment="Left" Margin="176,279,0,0" VerticalAlignment="Top" Width="169"/>
+        <TextBlock HorizontalAlignment="Left" Margin="60,230,0,0" TextWrapping="Wrap" Text="Поставщик" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBoxSupplier" HorizontalAlignment="Left" Margin="176,226,0,0" VerticalAlignment="Top" Width="169"/>
     </Grid>
 </Window>

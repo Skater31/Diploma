@@ -14,7 +14,13 @@ namespace Server_SIde.Models
         public int MarkId { get; set; }
         public Mark? Mark { get; set; }
 
-        public int? WarehouseId { get; set; }
+        public int WarehouseId { get; set; }
         public Warehouse? Warehouse { get; set; }
+
+        public int? EmployeeId { get; set; }
+        public Employee? Employee { get; set; }
+
+        public int SupplierId { get; set; }
+        public Supplier? Supplier { get; set; }
     }
 }

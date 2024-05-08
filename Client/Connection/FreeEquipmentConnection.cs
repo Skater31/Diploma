@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Server_SIde.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,44 +7,41 @@ using System.Net.Http;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media.Media3D;
-using Server_SIde.Models;
-using Newtonsoft.Json.Linq;
 
 namespace Client.Connection
 {
-    public class EquipmentConnection
+    public class FreeEquipmentConnection
     {
-        private const string _uri = "https://localhost:7280/equipment";
+        private const string _uri = "https://localhost:7280/freeEquipment";
 
         private readonly HttpClient _httpClient;
 
-        public EquipmentConnection()
+        public FreeEquipmentConnection()
         {
             _httpClient = new HttpClient();
         }
 
-        public async Task<IEnumerable<Equipment>> GetAllEquipment(int workshopId)
+        public async Task<IEnumerable<FreeEquipment>> GetAllFreeEquipment(int warehouseId)
         {
-            var valueSerialize = JsonConvert.SerializeObject(workshopId);
+            var valueSerialize = JsonConvert.SerializeObject(warehouseId);
 
             var content = new StringContent(valueSerialize, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync(_uri + "/getAllEquipment", content);
+            var response = await _httpClient.PostAsync(_uri + "/getAllFreeEquipment", content);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
 
-                var equipments = JsonConvert.DeserializeObject<IEnumerable<Equipment>>(responseContent);
+                var freeEquipments = JsonConvert.DeserializeObject<IEnumerable<FreeEquipment>>(responseContent);
 
-                return equipments;
+                return freeEquipments;
             }
 
             return null;
         }
 
-        public async Task<Equipment> GetById(int id)
+        public async Task<FreeEquipment> GetById(int id)
         {
             var valueSerialize = JsonConvert.SerializeObject(id);
 
@@ -55,44 +53,44 @@ namespace Client.Connection
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
 
-                var equipment = JsonConvert.DeserializeObject<Equipment>(responseContent);
+                var freeEquipment = JsonConvert.DeserializeObject<FreeEquipment>(responseContent);
 
-                return equipment;
+                return freeEquipment;
             }
 
             return null;
         }
 
-        public async void Add(Equipment equipment)
+        public async void Add(FreeEquipment freeEquipment)
         {
-            var equipmentSerialize = JsonConvert.SerializeObject(equipment);
+            var equipmentSerialize = JsonConvert.SerializeObject(freeEquipment);
 
             var content = new StringContent(equipmentSerialize, Encoding.UTF8, "application/json");
 
             await _httpClient.PostAsync(_uri + "/add", content);
         }
 
-        public async void Edit(Equipment equipment)
+        public async void Edit(FreeEquipment freeEquipment)
         {
-            var sportItemSerialize = JsonConvert.SerializeObject(equipment);
+            var sportItemSerialize = JsonConvert.SerializeObject(freeEquipment);
 
             var content = new StringContent(sportItemSerialize, Encoding.UTF8, "application/json");
 
             await _httpClient.PostAsync(_uri + "/edit", content);
         }
 
-        public async void Delete(Equipment equipment)
+        public async void Delete(FreeEquipment freeEquipment)
         {
-            var sportItemSerialize = JsonConvert.SerializeObject(equipment);
+            var sportItemSerialize = JsonConvert.SerializeObject(freeEquipment);
 
             var content = new StringContent(sportItemSerialize, Encoding.UTF8, "application/json");
 
             await _httpClient.PostAsync(_uri + "/delete", content);
         }
 
-        public async Task<IEnumerable<Equipment>> Find(string value, int workshopId)
+        public async Task<IEnumerable<FreeEquipment>> Find(string value, int warehouseId)
         {
-            var valueSerialize = JsonConvert.SerializeObject(value + $"+{workshopId}");
+            var valueSerialize = JsonConvert.SerializeObject(value + $"+{warehouseId}");
 
             var content = new StringContent(valueSerialize, Encoding.UTF8, "application/json");
 
@@ -102,9 +100,9 @@ namespace Client.Connection
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
 
-                var foundedEquipments = JsonConvert.DeserializeObject<IEnumerable<Equipment>>(responseContent);
+                var foundedFreeEquipments = JsonConvert.DeserializeObject<IEnumerable<FreeEquipment>>(responseContent);
 
-                return foundedEquipments;
+                return foundedFreeEquipments;
             }
 
             return null;

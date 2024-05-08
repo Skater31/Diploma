@@ -87,53 +87,50 @@
                     </ListView.View>
                 </ListView>
             </TabItem>
-            <TabItem Header="Склад ТХМ">
-                <DataGrid>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Наименования оборудывания" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Год установки" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Добавить" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Удалить" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Редактирвоать" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Поставщик" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Статус" Binding="{Binding Path=Title}" />
-                    </DataGrid.Columns>
-                </DataGrid>
+            <TabItem Name="warehouseTHM" Header="Склад ТХМ">
+                <ListView x:Name="listviewWarehouseTHM">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Инвентарный номер" DisplayMemberBinding="{Binding InventoryNumber}"/>
+                            <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Price}"/>
+                            <GridViewColumn Header="Марка" DisplayMemberBinding="{Binding Mark.MarkName}"/>
+                            <GridViewColumn Header="Поставщик" DisplayMemberBinding="{Binding Supplier.SupplierName}"/>
+                            <GridViewColumn Header="Номер поставщика" DisplayMemberBinding="{Binding Supplier.ContactNumber}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </TabItem>
-            <TabItem Header="Склад БХМ">
-                <DataGrid>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Наименования оборудывания" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Год установки" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Добавить" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Удалить" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Редактирвоать" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Поставщик" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Статус" Binding="{Binding Path=Title}" />
-                    </DataGrid.Columns>
-                </DataGrid>
+            <TabItem Name="warehouseBHM" Header="Склад БХМ">
+                <ListView x:Name="listviewWarehouseBHM">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Инвентарный номер" DisplayMemberBinding="{Binding InventoryNumber}"/>
+                            <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Price}"/>
+                            <GridViewColumn Header="Марка" DisplayMemberBinding="{Binding Mark.MarkName}"/>
+                            <GridViewColumn Header="Поставщик" DisplayMemberBinding="{Binding Supplier.SupplierName}"/>
+                            <GridViewColumn Header="Номер поставщика" DisplayMemberBinding="{Binding Supplier.ContactNumber}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </TabItem>
-            <TabItem Header="Склад готовой продукции">
-                <DataGrid>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Наименования оборудывания" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Марка" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Год установки" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Добавить" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Удалить" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Редактирвоать" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Поставщик" Binding="{Binding Path=Title}" />
-                        <DataGridTextColumn Header="Статус" Binding="{Binding Path=Title}" />
-                    </DataGrid.Columns>
-                </DataGrid>
+            <TabItem Name="warehouseFP" Header="Склад готовой продукции">
+                <ListView x:Name="listviewWarehouseFP">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Инвентарный номер" DisplayMemberBinding="{Binding InventoryNumber}"/>
+                            <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Price}"/>
+                            <GridViewColumn Header="Марка" DisplayMemberBinding="{Binding Mark.MarkName}"/>
+                            <GridViewColumn Header="Поставщик" DisplayMemberBinding="{Binding Supplier.SupplierName}"/>
+                            <GridViewColumn Header="Номер поставщика" DisplayMemberBinding="{Binding Supplier.ContactNumber}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </TabItem>
         </TabControl>
 

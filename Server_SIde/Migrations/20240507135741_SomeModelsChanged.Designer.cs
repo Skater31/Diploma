@@ -12,8 +12,8 @@ using Server_SIde.DAL;
 namespace Server_SIde.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240506115759_Initial")]
-    partial class Initial
+    [Migration("20240507135741_SomeModelsChanged")]
+    partial class SomeModelsChanged
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,7 +36,7 @@ namespace Server_SIde.Migrations
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PositionId")
+                    b.Property<int>("PositionId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -89,6 +89,9 @@ namespace Server_SIde.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("EmployeeId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("InventoryNumber")
                         .HasColumnType("int");
 
@@ -101,12 +104,19 @@ namespace Server_SIde.Migrations
                     b.Property<decimal?>("Price")
                         .HasColumnType("money");
 
-                    b.Property<int?>("WarehouseId")
+                    b.Property<int>("SupplierId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WarehouseId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EmployeeId");
+
                     b.HasIndex("MarkId");
+
+                    b.HasIndex("SupplierId");
 
                     b.HasIndex("WarehouseId");
 
@@ -156,7 +166,7 @@ namespace Server_SIde.Migrations
                     b.Property<string>("ContactNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("SupplierName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -219,7 +229,9 @@ namespace Server_SIde.Migrations
                 {
                     b.HasOne("Server_SIde.Models.Position", "Position")
                         .WithMany()
-                        .HasForeignKey("PositionId");
+                        .HasForeignKey("PositionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Position");
                 });
@@ -245,19 +257,40 @@ namespace Server_SIde.Migrations
 
             modelBuilder.Entity("Server_SIde.Models.FreeEquipment", b =>
                 {
+                    b.HasOne("Server_SIde.Models.Employee", "Employee")
+                        .WithMany("FreeEquipment")
+                        .HasForeignKey("EmployeeId");
+
                     b.HasOne("Server_SIde.Models.Mark", "Mark")
                         .WithMany()
                         .HasForeignKey("MarkId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Server_SIde.Models.Supplier", "Supplier")
+                        .WithMany()
+                        .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Server_SIde.Models.Warehouse", "Warehouse")
                         .WithMany("FreeEquipment")
-                        .HasForeignKey("WarehouseId");
+                        .HasForeignKey("WarehouseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
 
                     b.Navigation("Mark");
 
+                    b.Navigation("Supplier");
+
                     b.Navigation("Warehouse");
+                });
+
+            modelBuilder.Entity("Server_SIde.Models.Employee", b =>
+                {
+                    b.Navigation("FreeEquipment");
                 });
 
             modelBuilder.Entity("Server_SIde.Models.Warehouse", b =>
