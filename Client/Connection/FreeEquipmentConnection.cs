@@ -41,6 +41,22 @@ namespace Client.Connection
             return null;
         }
 
+        public async Task<IEnumerable<FreeEquipment>> GetAllFreeEquipment()
+        {
+            var response = await _httpClient.GetAsync(_uri + "/getAllFreeEquipment");
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                var freeEquipments = JsonConvert.DeserializeObject<IEnumerable<FreeEquipment>>(responseContent);
+
+                return freeEquipments;
+            }
+
+            return null;
+        }
+
         public async Task<FreeEquipment> GetById(int id)
         {
             var valueSerialize = JsonConvert.SerializeObject(id);
@@ -63,27 +79,27 @@ namespace Client.Connection
 
         public async void Add(FreeEquipment freeEquipment)
         {
-            var equipmentSerialize = JsonConvert.SerializeObject(freeEquipment);
+            var freeEquipmentSerialize = JsonConvert.SerializeObject(freeEquipment);
 
-            var content = new StringContent(equipmentSerialize, Encoding.UTF8, "application/json");
+            var content = new StringContent(freeEquipmentSerialize, Encoding.UTF8, "application/json");
 
             await _httpClient.PostAsync(_uri + "/add", content);
         }
 
         public async void Edit(FreeEquipment freeEquipment)
         {
-            var sportItemSerialize = JsonConvert.SerializeObject(freeEquipment);
+            var freeEquipmentSerialize = JsonConvert.SerializeObject(freeEquipment);
 
-            var content = new StringContent(sportItemSerialize, Encoding.UTF8, "application/json");
+            var content = new StringContent(freeEquipmentSerialize, Encoding.UTF8, "application/json");
 
             await _httpClient.PostAsync(_uri + "/edit", content);
         }
 
         public async void Delete(FreeEquipment freeEquipment)
         {
-            var sportItemSerialize = JsonConvert.SerializeObject(freeEquipment);
+            var freeEquipmentSerialize = JsonConvert.SerializeObject(freeEquipment);
 
-            var content = new StringContent(sportItemSerialize, Encoding.UTF8, "application/json");
+            var content = new StringContent(freeEquipmentSerialize, Encoding.UTF8, "application/json");
 
             await _httpClient.PostAsync(_uri + "/delete", content);
         }

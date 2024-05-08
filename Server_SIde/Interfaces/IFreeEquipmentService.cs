@@ -6,7 +6,11 @@ namespace Server_SIde.Interfaces
     {
         IEnumerable<FreeEquipment> GetAllFreeEquipment(int warehouseId);
 
+        IEnumerable<FreeEquipment> GetAllFreeEquipment();
+
         FreeEquipment GetById(int id);
+
+        IEnumerable<FreeEquipment> GetAllByEmployeeId(int employeeId);
 
         void Add(FreeEquipment freeEquipment);
 

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client.AddWindows"
         mc:Ignorable="d"
-        Title="FreeEquipmentAddWindow" Height="450" Width="400"
-        WindowStartupLocation="CenterScreen">
+        Title="Добавить свободное оборудывание" Height="450" Width="400"
+        WindowStartupLocation="CenterScreen" Icon="/Images/Plus32.png">
     <Grid>
         <Button x:Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Center" Margin="0,344,0,0" VerticalAlignment="Top" Click="ButtonAdd_Click" />
         <TextBlock HorizontalAlignment="Left" Margin="66,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="90"><Run Text="Наименование оборудова"/><Run Language="ru-ru" Text="н"/><Run Text="ия "/></TextBlock>

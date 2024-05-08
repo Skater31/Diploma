@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="Images\add-file32.png" />
     <None Remove="Images\briefcase32.png" />
+    <None Remove="Images\close32.png" />
     <None Remove="Images\conveyor32.png" />
     <None Remove="Images\equipment16px.png" />
     <None Remove="Images\equipment32px.png" />
@@ -41,6 +42,7 @@
   <ItemGroup>
     <Resource Include="Images\add-file32.png" />
     <Resource Include="Images\briefcase32.png" />
+    <Resource Include="Images\close32.png" />
     <Resource Include="Images\conveyor32.png" />
     <Resource Include="Images\equipment16px.png" />
     <Resource Include="Images\equipment32px.png" />

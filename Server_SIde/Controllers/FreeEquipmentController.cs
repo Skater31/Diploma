@@ -22,6 +22,13 @@ namespace Server_SIde.Controllers
             return _freeEquipmentService.GetAllFreeEquipment(warehouseId);
         }
 
+        [HttpGet]
+        [Route("getAllFreeEquipment")]
+        public async Task<IEnumerable<FreeEquipment>> GetAllFreeEquipment()
+        {
+            return _freeEquipmentService.GetAllFreeEquipment();
+        }
+
         [HttpPost]
         [Route("getById")]
         public async Task<FreeEquipment> GetById([FromBody] int id)

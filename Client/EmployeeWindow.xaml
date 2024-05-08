@@ -1,0 +1,75 @@
+﻿<Window x:Class="Client.EmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="Работники" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized" Icon="Images\equipment32px.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Button Content="Button" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="32" Height="32" Click="ButtonAdd_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/add-file32.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,10,10,10" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="32" Height="32" Click="ButtonEdit_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/pen32.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="90,10,10,10" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonDelete_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/close32.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="130,10,10,10" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonRefresh_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Reload32.png"/>
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,10,10,10" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonPosition_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/briefcase32.png"/>
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="280,10,10,10" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonSupplier_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/conveyor32.png"/>
+            </Button.Background>
+        </Button>
+        <ListView x:Name="listviewEmployees" Grid.Row="1" Grid.Column="0" MouseDoubleClick="ListView_MouseDoubleClick" HorizontalAlignment="Stretch">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding FullName}"/>
+                    <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding Position.PositionName}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="listviewFreeEquipment" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Инв. номер" DisplayMemberBinding="{Binding InventoryNumber}"/>
+                    <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Price}"/>
+                    <GridViewColumn Header="Марка" DisplayMemberBinding="{Binding Mark.MarkName}"/>
+                    <GridViewColumn Header="Поставщик" DisplayMemberBinding="{Binding Supplier.SupplierName}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Row="0" Grid.Column="1" Content="Оборудывание" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Click="ButtonFreeEquip_Click"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="Назначить" HorizontalAlignment="Left" Margin="150,10,10,10" VerticalAlignment="Top" Click="ButtonAppoint_Click"/>
+    </Grid>
+</Window>

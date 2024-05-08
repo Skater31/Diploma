@@ -19,5 +19,17 @@ namespace Server_SIde.Services
 
             return suppliers;
         }
+
+        public void Add(Supplier supplier)
+        {
+            _applicationContext.Suppliers.Add(supplier);
+            _applicationContext.SaveChanges();
+        }
+
+        public void Delete(Supplier supplier)
+        {
+            _applicationContext.Suppliers.Remove(supplier);
+            _applicationContext.SaveChanges();
+        }
     }
 }

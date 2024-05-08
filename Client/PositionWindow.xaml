@@ -1,0 +1,35 @@
+﻿<Window x:Class="Client.PositionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="Должности" Height="450" Width="330"
+        WindowStartupLocation="CenterScreen" Icon="Images\equipment32px.png">
+    <Grid>
+        <Button Content="Button" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="32" Height="32" Click="ButtonAdd_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/add-file32.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="50,10,10,10" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonDelete_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/close32.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="90,10,10,10" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonRefresh_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Reload32.png"/>
+            </Button.Background>
+        </Button>
+        <ListView x:Name="listviewPositions" Grid.Row="1" Grid.Column="0" Margin="0,50,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding PositionName}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

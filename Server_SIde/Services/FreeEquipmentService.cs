@@ -23,6 +23,15 @@ namespace Server_SIde.Services
             return freeEquipments;
         }
 
+        public IEnumerable<FreeEquipment> GetAllFreeEquipment()
+        {
+            var freeEquipments = _applicationContext.FreeEquipments.
+                Include("Mark").Include("Supplier").
+                ToList();
+
+            return freeEquipments;
+        }
+
         public FreeEquipment GetById(int id)
         {
             var freeEquipment = _applicationContext.FreeEquipments.
@@ -30,6 +39,15 @@ namespace Server_SIde.Services
                 FirstOrDefault(fe => fe.Id == id);
 
             return freeEquipment;
+        }
+
+        public IEnumerable<FreeEquipment> GetAllByEmployeeId(int employeeId)
+        {
+            var emploeesFreeEquipment = _applicationContext.FreeEquipments.
+                Include("Mark").Include("Supplier").
+                Where(fe => fe.EmployeeId ==  employeeId).ToList();
+
+            return emploeesFreeEquipment;
         }
 
         public void Add(FreeEquipment freeEquipment)

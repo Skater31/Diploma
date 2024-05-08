@@ -279,7 +279,12 @@ namespace Client
             }
         }
 
-        private async Task LoadEquipment()
+        private void ButtonEmployees_Click(object sender, RoutedEventArgs e)
+        {
+            new EmployeeWindow(_freeEquipmentConnection).ShowDialog();
+        }
+
+        private async void LoadEquipment()
         {
             listViewGristMill.ItemsSource = await _equipmentConnection.GetAllEquipment(1);
             listViewCombine.ItemsSource = await _equipmentConnection.GetAllEquipment(2);

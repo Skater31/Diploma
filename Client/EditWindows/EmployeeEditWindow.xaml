@@ -1,0 +1,17 @@
+﻿<Window x:Class="Client.EditWindows.EmployeeEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client.EditWindows"
+        mc:Ignorable="d"
+        Title="EmployeeEditWindow" Height="250" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button x:Name="ButtonEdit" Content="Изменить" HorizontalAlignment="Center" Margin="0,174,0,0" VerticalAlignment="Top" Click="ButtonEdit_Click" />
+        <TextBlock HorizontalAlignment="Left" Margin="83,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="36"><Run Text="ФИО"/></TextBlock>
+        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="179,44,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169"/>
+        <TextBlock HorizontalAlignment="Left" Margin="69,107,0,0" TextWrapping="Wrap" Text="Марка" VerticalAlignment="Top"/>
+        <ComboBox Name="comboBoxPosition" HorizontalAlignment="Left" Margin="179,103,0,0" VerticalAlignment="Top" Width="169"/>
+    </Grid>
+</Window>

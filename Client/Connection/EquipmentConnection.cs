@@ -74,18 +74,18 @@ namespace Client.Connection
 
         public async void Edit(Equipment equipment)
         {
-            var sportItemSerialize = JsonConvert.SerializeObject(equipment);
+            var equipmentSerialize = JsonConvert.SerializeObject(equipment);
 
-            var content = new StringContent(sportItemSerialize, Encoding.UTF8, "application/json");
+            var content = new StringContent(equipmentSerialize, Encoding.UTF8, "application/json");
 
             await _httpClient.PostAsync(_uri + "/edit", content);
         }
 
         public async void Delete(Equipment equipment)
         {
-            var sportItemSerialize = JsonConvert.SerializeObject(equipment);
+            var equipmentSerialize = JsonConvert.SerializeObject(equipment);
 
-            var content = new StringContent(sportItemSerialize, Encoding.UTF8, "application/json");
+            var content = new StringContent(equipmentSerialize, Encoding.UTF8, "application/json");
 
             await _httpClient.PostAsync(_uri + "/delete", content);
         }
