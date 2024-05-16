@@ -41,7 +41,7 @@ namespace Client.AddWindows
             {
                 var employee = new Employee
                 {
-                    FullName = textboxName.Text,
+                    FullName = textboxName.Text.Trim(),
                     PositionId = PositionNameToId(comboBoxPosition.SelectedItem.ToString()),
                 };
 

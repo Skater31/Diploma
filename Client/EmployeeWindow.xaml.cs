@@ -84,8 +84,12 @@ namespace Client
 
         private void ButtonAppoint_Click(object sender, RoutedEventArgs e)
         {
-            new EmployeeAppointWindow(_employeeConnection, 
-                listviewFreeEquipment.SelectedItems.OfType<FreeEquipment>().ToList()).ShowDialog();
+            var freeEquipList = listviewFreeEquipment.SelectedItems.OfType<FreeEquipment>().ToList();
+
+            if (freeEquipList.Count > 0)
+            {
+                new EmployeeAppointWindow(_employeeConnection, _freeEquipmentConnection, freeEquipList).ShowDialog();
+            }
         }
 
         private async void LoadEmployees()

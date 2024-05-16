@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Работники" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
-        WindowState="Maximized" Icon="Images\equipment32px.png">
+        WindowState="Maximized" Icon="Images\equipment32px.png"
+        ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="55"></RowDefinition>

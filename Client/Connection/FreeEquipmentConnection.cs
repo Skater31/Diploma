@@ -95,6 +95,15 @@ namespace Client.Connection
             await _httpClient.PostAsync(_uri + "/edit", content);
         }
 
+        public async void Edit(IEnumerable<FreeEquipment> freeEquipment)
+        {
+            var freeEquipmentSerialize = JsonConvert.SerializeObject(freeEquipment);
+
+            var content = new StringContent(freeEquipmentSerialize, Encoding.UTF8, "application/json");
+
+            await _httpClient.PostAsync(_uri + "/editRange", content);
+        }
+
         public async void Delete(FreeEquipment freeEquipment)
         {
             var freeEquipmentSerialize = JsonConvert.SerializeObject(freeEquipment);

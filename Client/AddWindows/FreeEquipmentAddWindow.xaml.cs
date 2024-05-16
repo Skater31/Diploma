@@ -49,7 +49,7 @@ namespace Client.AddWindows
             {
                 var freeEquipment = new FreeEquipment
                 {
-                    Name = textboxName.Text,
+                    Name = textboxName.Text.Trim(),
                     InventoryNumber = invNum,
                     Price = price,
                     MarkId = MarkNameToId(comboBoxMark.SelectedItem.ToString()),

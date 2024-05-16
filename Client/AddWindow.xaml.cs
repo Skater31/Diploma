@@ -45,7 +45,7 @@ namespace Client
             {
                 var equipment = new Equipment
                 {
-                    Name = textboxName.Text,
+                    Name = textboxName.Text.Trim(),
                     InventoryNumber = invNum,
                     Price = price,
                     YearOfInstalation = datePicker.DisplayDate,

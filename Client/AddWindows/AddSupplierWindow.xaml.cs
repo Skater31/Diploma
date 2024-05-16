@@ -32,7 +32,7 @@ namespace Client.AddWindows
             if (textboxName.Text != string.Empty &&
                 textboxNumber.Text != string.Empty)
             {
-                _supplierConnection.Add(new Supplier { SupplierName = textboxName.Text, ContactNumber = textboxNumber.Text });
+                _supplierConnection.Add(new Supplier { SupplierName = textboxName.Text.Trim(), ContactNumber = textboxNumber.Text });
 
                 Close();
             }

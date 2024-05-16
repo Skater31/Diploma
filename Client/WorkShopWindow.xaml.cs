@@ -16,6 +16,10 @@ using Client.Connection;
 using Client.EditWindows;
 using Server_SIde.Models;
 using Client.AddWindows;
+using ClosedXML.Excel;
+using System.IO;
+using System.Globalization;
+using OfficeIMO.Word;
 
 namespace Client
 {
@@ -135,37 +139,72 @@ namespace Client
             {
                 case "gristMill":
                     var equipGristMill = (Equipment)listViewGristMill.SelectedItem;
-                    new EquipmentEditWindow(_equipmentConnection, equipGristMill.Id, equipGristMill.WorkshopId).ShowDialog();
+
+                    if (equipGristMill != null)
+                    {
+                        new EquipmentEditWindow(_equipmentConnection, equipGristMill.Id, equipGristMill.WorkshopId).ShowDialog();
+                    }
+
                     break;
 
                 case "combine":
                     var equipCombine = (Equipment)listViewCombine.SelectedItem;
-                    new EquipmentEditWindow(_equipmentConnection, equipCombine.Id, equipCombine.Id).ShowDialog();
+
+                    if (equipCombine != null)
+                    {
+                        new EquipmentEditWindow(_equipmentConnection, equipCombine.Id, equipCombine.Id).ShowDialog();
+                    }
+
                     break;
 
                 case "mill":
                     var equipMill = (Equipment)listViewMill.SelectedItem;
-                    new EquipmentEditWindow(_equipmentConnection, equipMill.Id, equipMill.WorkshopId).ShowDialog();
+
+                    if (equipMill != null)
+                    {
+                        new EquipmentEditWindow(_equipmentConnection, equipMill.Id, equipMill.WorkshopId).ShowDialog();
+                    }
+
                     break;
 
                 case "elevator":
                     var equipElevator = (Equipment)listViewElevator.SelectedItem;
-                    new EquipmentEditWindow(_equipmentConnection, equipElevator.Id, equipElevator.WorkshopId).ShowDialog();
+
+                    if (equipElevator != null)
+                    {
+                        new EquipmentEditWindow(_equipmentConnection, equipElevator.Id, equipElevator.WorkshopId).ShowDialog();
+                    }
+
                     break;
 
                 case "warehouseTHM":
                     var freeEquipWarehouseTHM = (FreeEquipment)listviewWarehouseTHM.SelectedItem;
-                    new FreeEquipmentEditWindow(_freeEquipmentConnection, freeEquipWarehouseTHM.Id, freeEquipWarehouseTHM.WarehouseId).ShowDialog();
+
+                    if (freeEquipWarehouseTHM != null)
+                    {
+                        new FreeEquipmentEditWindow(_freeEquipmentConnection, freeEquipWarehouseTHM.Id, freeEquipWarehouseTHM.WarehouseId).ShowDialog();
+                    }
+
                     break;
 
                 case "warehouseBHM":
                     var freeEquipWarehouseBHM = (FreeEquipment)listviewWarehouseBHM.SelectedItem;
-                    new FreeEquipmentEditWindow(_freeEquipmentConnection, freeEquipWarehouseBHM.Id, freeEquipWarehouseBHM.WarehouseId).ShowDialog();
+
+                    if (freeEquipWarehouseBHM != null)
+                    {
+                        new FreeEquipmentEditWindow(_freeEquipmentConnection, freeEquipWarehouseBHM.Id, freeEquipWarehouseBHM.WarehouseId).ShowDialog();
+                    }
+
                     break;
 
                 case "warehouseFP":
                     var freeEquipWarehouseFP = (FreeEquipment)listviewWarehouseFP.SelectedItem;
-                    new FreeEquipmentEditWindow(_freeEquipmentConnection, freeEquipWarehouseFP.Id, freeEquipWarehouseFP.WarehouseId).ShowDialog();
+
+                    if (freeEquipWarehouseFP != null)
+                    {
+                        new FreeEquipmentEditWindow(_freeEquipmentConnection, freeEquipWarehouseFP.Id, freeEquipWarehouseFP.WarehouseId).ShowDialog();
+                    }
+
                     break;
             }
         }
@@ -294,6 +333,169 @@ namespace Client
             listviewWarehouseTHM.ItemsSource = await _freeEquipmentConnection.GetAllFreeEquipment(1);
             listviewWarehouseBHM.ItemsSource = await _freeEquipmentConnection.GetAllFreeEquipment(2);
             listviewWarehouseFP.ItemsSource = await _freeEquipmentConnection.GetAllFreeEquipment(3);
+        }
+
+        private void ButtonExcel_Click(object sender, RoutedEventArgs e)
+        {
+            using var wb = new XLWorkbook();
+            var ws = wb.Worksheets.Add("myData");
+
+            var tabItemName = ((TabItem)tabControl.SelectedItem).Name;
+
+            switch (tabItemName)
+            {
+                case "gristMill":
+                    ws.Cell(1, 1).InsertTable((IEnumerable<Equipment>)listViewGristMill.ItemsSource);
+                    wb.SaveAs(@"C:\Users\Danila\Desktop\Сортовая мельница.xlsx");
+
+                    MessageBox.Show("Данные добавлены в файл \'Сортовая мельница.xlsx\'");
+                    break;
+
+                case "combine":
+                    ws.Cell(1, 1).InsertTable((IEnumerable<Equipment>)listViewCombine.ItemsSource);
+                    wb.SaveAs(@"C:\Users\Danila\Desktop\Комбицех.xlsx");
+
+                    MessageBox.Show("Данные добавлены в файл \'Комбицех.xlsx\'");
+                    break;
+
+                case "mill":
+                    ws.Cell(1, 1).InsertTable((IEnumerable<Equipment>)listViewMill.ItemsSource);
+                    wb.SaveAs(@"C:\Users\Danila\Desktop\Мельница.xlsx");
+
+                    MessageBox.Show("Данные добавлены в файл \'Мельница.xlsx\'");
+                    break;
+
+                case "elevator":
+                    ws.Cell(1, 1).InsertTable((IEnumerable<Equipment>)listViewElevator.ItemsSource);
+                    wb.SaveAs(@"C:\Users\Danila\Desktop\Элеватор.xlsx");
+
+                    MessageBox.Show("Данные добавлены в файл \'Элеватор.xlsx\'");
+                    break;
+
+                case "warehouseTHM":
+                    ws.Cell(1, 1).InsertTable((IEnumerable<FreeEquipment>)listviewWarehouseTHM.ItemsSource);
+                    wb.SaveAs(@"C:\Users\Danila\Desktop\Склад ТХМ.xlsx");
+
+                    MessageBox.Show("Данные добавлены в файл \'Склад ТХМ.xlsx\'");
+                    break;
+
+                case "warehouseBHM":
+                    ws.Cell(1, 1).InsertTable((IEnumerable<FreeEquipment>)listviewWarehouseBHM.ItemsSource);
+                    wb.SaveAs(@"C:\Users\Danila\Desktop\Склад БХМ.xlsx");
+
+                    MessageBox.Show("Данные добавлены в файл \'Склад БХМ.xlsx\'");
+                    break;
+
+                case "warehouseFP":
+                    ws.Cell(1, 1).InsertTable((IEnumerable<FreeEquipment>)listviewWarehouseFP.ItemsSource);
+                    wb.SaveAs(@"C:\Users\Danila\Desktop\Склад готовой продукции.xlsx");
+
+                    MessageBox.Show("Данные добавлены в файл \'Склад готовой продукции.xlsx\'");
+                    break;
+            }
+        }
+
+        private void ButtonWord_Click(object sender, RoutedEventArgs e)
+        {
+            var tabItemName = ((TabItem)tabControl.SelectedItem).Name;
+
+            switch (tabItemName)
+            {
+                case "gristMill":
+                    EquipmentToWord(@"C:\Users\Danila\Desktop\Сортовая мельница.docx", 
+                        (List<Equipment>)listViewGristMill.ItemsSource);
+
+                    MessageBox.Show("Данные добавлены в файл \'Сортовая мельница.docx\'");
+                    break;
+
+                case "combine":
+                    EquipmentToWord(@"C:\Users\Danila\Desktop\Комбицех.docx",
+                        (List<Equipment>)listViewCombine.ItemsSource);
+
+                    MessageBox.Show("Данные добавлены в файл \'Комбицех.docx\'");
+                    break;
+
+                case "mill":
+                    EquipmentToWord(@"C:\Users\Danila\Desktop\Мельница.docx",
+                        (List<Equipment>)listViewMill.ItemsSource);
+
+                    MessageBox.Show("Данные добавлены в файл \'Мельница.docx\'");
+                    break;
+
+                case "elevator":
+                    EquipmentToWord(@"C:\Users\Danila\Desktop\Элеватор.docx",
+                        (List<Equipment>)listViewElevator.ItemsSource);
+
+                    MessageBox.Show("Данные добавлены в файл \'Элеватор.docx\'");
+                    break;
+
+                case "warehouseTHM":
+                    FreeEquipmentToWord(@"C:\Users\Danila\Desktop\Склад ТХМ.docx",
+                        (List<FreeEquipment>)listviewWarehouseTHM.ItemsSource);
+
+                    MessageBox.Show("Данные добавлены в файл \'Склад ТХМ.docx\'");
+                    break;
+
+                case "warehouseBHM":
+                    FreeEquipmentToWord(@"C:\Users\Danila\Desktop\Склад БХМ.docx",
+                        (List<FreeEquipment>)listviewWarehouseBHM.ItemsSource);
+
+                    MessageBox.Show("Данные добавлены в файл \'Склад БХМ.docx\'");
+                    break;
+
+                case "warehouseFP":
+                    FreeEquipmentToWord(@"C:\Users\Danila\Desktop\Склад готовой продукции.docx",
+                        (List<FreeEquipment>)listviewWarehouseFP.ItemsSource);
+
+                    MessageBox.Show("Данные добавлены в файл \'Склад готовой продукции.docx\'");
+                    break;
+            }
+        }
+
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void EquipmentToWord(string filePath, List<Equipment> equipmentList)
+        {
+            using var document = WordDocument.Create(filePath);
+
+            foreach (var equipment in equipmentList)
+            {
+                var equip = $"Id: {equipment.Id}\n" +
+                    $"Name: {equipment.Name}\n" +
+                    $"Inv. number: {equipment.InventoryNumber}\n" +
+                    $"Price: {equipment.Price}\n" +
+                    $"YearOfInstalation: {equipment.YearOfInstalation}\n" +
+                    $"MarkId: {equipment.MarkId}\n" +
+                    $"WorkshopId: {equipment.WorkshopId}\n";
+
+                document.AddParagraph(equip);
+            }
+
+            document.Save();
+        }
+
+        private void FreeEquipmentToWord(string filePath, List<FreeEquipment> freeEquipmentList)
+        {
+            using var document = WordDocument.Create(filePath);
+
+            foreach (var freeEquipment in freeEquipmentList)
+            {
+                var freeEquip = $"Id: {freeEquipment.Id}\n" +
+                    $"Name: {freeEquipment.Name}\n" +
+                    $"Inv. number: {freeEquipment.InventoryNumber}\n" +
+                    $"Price: {freeEquipment.Price}\n" +
+                    $"MarkId: {freeEquipment.MarkId}\n" +
+                    $"WarehouseId: {freeEquipment.WarehouseId}\n" +
+                    $"EmployeeId: {freeEquipment.EmployeeId}\n" +
+                    $"SupplierId: {freeEquipment.SupplierId}\n";
+
+                document.AddParagraph(freeEquip);
+            }
+
+            document.Save();
         }
     }
 }

@@ -16,6 +16,8 @@ namespace Server_SIde.Interfaces
 
         void Edit(FreeEquipment freeEquipment);
 
+        void Edit(IEnumerable<FreeEquipment> freeEquipment);
+
         void Delete(FreeEquipment freeEquipment);
 
         IEnumerable<FreeEquipment> Find(string value, int warehouseId);

@@ -45,7 +45,7 @@ namespace Server_SIde.Services
         {
             var emploeesFreeEquipment = _applicationContext.FreeEquipments.
                 Include("Mark").Include("Supplier").
-                Where(fe => fe.EmployeeId ==  employeeId).ToList();
+                Where(fe => fe.EmployeeId == employeeId).ToList();
 
             return emploeesFreeEquipment;
         }
@@ -59,6 +59,12 @@ namespace Server_SIde.Services
         public void Edit(FreeEquipment freeEquipment)
         {
             _applicationContext.FreeEquipments.Update(freeEquipment);
+            _applicationContext.SaveChanges();
+        }
+
+        public void Edit(IEnumerable<FreeEquipment> freeEquipment)
+        {
+            _applicationContext.FreeEquipments.UpdateRange(freeEquipment);
             _applicationContext.SaveChanges();
         }
 

@@ -31,7 +31,7 @@ namespace Client.AddWindows
         {
             if (textboxName.Text != string.Empty)
             {
-                _positionConnection.Add(new Position { PositionName = textboxName.Text });
+                _positionConnection.Add(new Position { PositionName = textboxName.Text.Trim() });
 
                 Close();
             }

@@ -14,17 +14,17 @@
                 <ImageBrush ImageSource="Images\Search32_icon.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="32" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalContentAlignment="Right">
+        <Button Content="Button" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="32" BorderBrush="{x:Null}" Foreground="{x:Null}" HorizontalContentAlignment="Right" Click="ButtonExit_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/exit32.png"/>
             </Button.Background>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="861,10,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="861,10,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonWord_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/word32.png"/>
             </Button.Background>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="824,10,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="824,10,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonExcel_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/excel32.png"/>
             </Button.Background>

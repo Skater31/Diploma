@@ -28,8 +28,8 @@ namespace Client
         {
             var user = new User
             {
-                Login = textBoxLogin.Text,
-                Password = textBoxPassword.Password,
+                Login = textBoxLogin.Text.Trim(),
+                Password = textBoxPassword.Password.Trim(),
             };
 
             var isAuth = await _authConnection.IsAuthenticated(user);

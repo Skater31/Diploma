@@ -51,6 +51,13 @@ namespace Server_SIde.Controllers
         }
 
         [HttpPost]
+        [Route("editRange")]
+        public void Edit(IEnumerable<FreeEquipment> freeEquipment)
+        {
+            _freeEquipmentService.Edit(freeEquipment);
+        }
+
+        [HttpPost]
         [Route("delete")]
         public void Delete(FreeEquipment freeEquipment)
         {
