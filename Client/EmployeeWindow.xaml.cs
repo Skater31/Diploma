@@ -41,7 +41,10 @@ namespace Client
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
-            new EmployeeEditWindow(_employeeConnection, ((Employee)listviewEmployees.SelectedItem).Id).ShowDialog();
+            if (listviewEmployees.SelectedItem != null)
+            {
+                new EmployeeEditWindow(_employeeConnection, ((Employee)listviewEmployees.SelectedItem).Id).ShowDialog();
+            }       
         }
 
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)

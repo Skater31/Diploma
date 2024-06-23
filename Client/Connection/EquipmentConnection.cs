@@ -87,6 +87,8 @@ namespace Client.Connection
 
             var content = new StringContent(equipmentSerialize, Encoding.UTF8, "application/json");
 
+
+            
             await _httpClient.PostAsync(_uri + "/delete", content);
         }
 

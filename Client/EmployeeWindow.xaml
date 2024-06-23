@@ -18,7 +18,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
+
         <Button Content="Button" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="32" Height="32" Click="ButtonAdd_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/add-file32.png"/>
@@ -39,17 +39,17 @@
                 <ImageBrush ImageSource="/Images/Reload32.png"/>
             </Button.Background>
         </Button>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,10,10,10" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonPosition_Click">
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Margin="167,10,0,0" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonPosition_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/briefcase32.png"/>
             </Button.Background>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="280,10,10,10" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonSupplier_Click">
+        <Button HorizontalAlignment="Left" Margin="204,10,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonSupplier_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/conveyor32.png"/>
             </Button.Background>
         </Button>
-        <ListView x:Name="listviewEmployees" Grid.Row="1" Grid.Column="0" MouseDoubleClick="ListView_MouseDoubleClick" HorizontalAlignment="Stretch">
+        <ListView x:Name="listviewEmployees" Grid.Row="1" Grid.Column="0" MouseDoubleClick="ListView_MouseDoubleClick" HorizontalAlignment="Stretch" FontFamily="Arial" FontSize="14">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
@@ -58,7 +58,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="listviewFreeEquipment" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch">
+        <ListView x:Name="listviewFreeEquipment" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" FontFamily="Arial" FontSize="14">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
@@ -70,7 +70,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Grid.Row="0" Grid.Column="1" Content="Оборудывание" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Click="ButtonFreeEquip_Click"/>
-        <Button Grid.Row="0" Grid.Column="1" Content="Назначить" HorizontalAlignment="Left" Margin="150,10,10,10" VerticalAlignment="Top" Click="ButtonAppoint_Click"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="Оборудование" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Click="ButtonFreeEquip_Click" FontFamily="Arial Black" FontSize="14" Background="#FFFF8A00" BorderBrush="#FFFF8A00"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="Назначить" HorizontalAlignment="Left" Margin="161,10,0,0" VerticalAlignment="Top" Click="ButtonAppoint_Click" FontFamily="Arial Black" FontSize="14" BorderBrush="#FFFF8A00" Background="#FFFF8A00"/>
     </Grid>
 </Window>

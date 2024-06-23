@@ -40,6 +40,10 @@ namespace Client
 
                 Close();
             }
+            else
+            {
+                labelError.Content = "Неправильный логин или пароль";
+            }
         }
     }
 }

@@ -8,12 +8,13 @@
         mc:Ignorable="d"
         Title="Авторизация" Height="450" Width="450" Icon="/Images/Login32.png" WindowStartupLocation="CenterScreen" FontSize="16">
     <Grid>
-        <TextBox materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="textBoxLogin" HorizontalAlignment="Center" Margin="0,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="46" FontSize="16" Foreground="Black"  />
+        <TextBox materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="textBoxLogin" HorizontalAlignment="Center" Margin="0,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="46" FontSize="16" Foreground="Black" FontFamily="Arial Black" Background="#00000000"  />
         <Label x:Name="Mistake" Content="Неправильный логин или пароль" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Red" Width="200" Margin="0,268,0,0" FontSize="12" Visibility="Hidden"/>
-        <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" x:Name="textBoxPassword" HorizontalAlignment="Center" Margin="0,241,0,0" VerticalAlignment="Top" Width="200" FontSize="16"/>
-        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,343,0,0" VerticalAlignment="Top" Click="Button_Click" Width="110" FontSize="16"/>
-        <Label Content="Авторизация" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top"/>
+        <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" x:Name="textBoxPassword" HorizontalAlignment="Center" Margin="0,255,0,0" VerticalAlignment="Top" Width="200" FontSize="16" FontFamily="Arial Black"/>
+        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,356,0,0" VerticalAlignment="Top" Click="Button_Click" Width="110" FontSize="16" FontFamily="Arial Black" FontWeight="Bold" Background="#FFFFB800" BorderBrush="#FFFFB800"/>
+        <Label Content="Авторизация" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold"/>
         <Image Margin="173,7,170,0" Source="/Images/Logo PKX.jpg" Stretch="Fill" Height="110" RenderTransformOrigin="0.697,0.371" VerticalAlignment="Top"/>
+        <Label x:Name="labelError" Content="" HorizontalContentAlignment="Center" Foreground="Red" HorizontalAlignment="Center" Margin="0,297,0,0" VerticalAlignment="Top" Width="330"/>
 
     </Grid>
 </Window>

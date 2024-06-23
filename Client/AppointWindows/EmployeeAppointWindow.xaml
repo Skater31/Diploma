@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client.AppointWindows"
         mc:Ignorable="d"
-        Title="Назначение" Height="300" Width="400"
+        Title="Назначение" Height="300" Width="487"
         WindowStartupLocation="CenterScreen" Icon="/Images/Plus32.png">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="83,75,0,0" TextWrapping="Wrap" Text="Сотрудник" VerticalAlignment="Top"/>
-        <ComboBox Name="comboBoxEmployee" HorizontalAlignment="Left" Margin="200,71,0,0" VerticalAlignment="Top" Width="156"/>
-        <TextBlock HorizontalAlignment="Left" Margin="83,147,0,0" TextWrapping="Wrap" Text="Оборудывание" VerticalAlignment="Top"/>
-        <ComboBox Name="comboBoxFreeEquip" HorizontalAlignment="Left" Margin="200,142,0,0" VerticalAlignment="Top" Width="156"/>
-        <Button Content="Назначить" HorizontalAlignment="Center" Margin="0,215,0,0" VerticalAlignment="Top" Click="ButtonAppoint_Click"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" Text="Назначить" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,121,0,0" TextWrapping="Wrap" Text="Ответственным за" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="52,75,0,0" TextWrapping="Wrap" Text="Сотрудник" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <ComboBox Name="comboBoxEmployee" HorizontalAlignment="Left" Margin="200,74,0,0" VerticalAlignment="Top" Width="221" FontFamily="Arial" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="52,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"><Run Text="Оборуд"/><Run Language="ru-ru" Text="о"/><Run Text="вание"/></TextBlock>
+        <ComboBox Name="comboBoxFreeEquip" HorizontalAlignment="Left" Margin="200,150,0,0" VerticalAlignment="Top" Width="221" FontFamily="Arial" FontSize="14"/>
+        <Button Content="Назначить" HorizontalAlignment="Center" Margin="0,215,0,0" VerticalAlignment="Top" Click="ButtonAppoint_Click" FontFamily="Arial Black" Background="#FFFF8A00" BorderBrush="#FFFF8A00" Foreground="#DD000000"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,39,0,0" TextWrapping="Wrap" Text="Назначить" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,121,0,0" TextWrapping="Wrap" Text="Ответственным за" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
 
     </Grid>
 </Window>

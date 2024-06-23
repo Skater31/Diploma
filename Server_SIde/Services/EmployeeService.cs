@@ -44,7 +44,7 @@ namespace Server_SIde.Services
         }
 
         public void Delete(Employee employee)
-        {
+        {          
             _applicationContext.Employees.Remove(employee);
             _applicationContext.SaveChanges();
         }

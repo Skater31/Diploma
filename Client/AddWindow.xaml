@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="Добавить оборудывание" Height="450" Width="400"
+        Title="Добавить оборудование" Height="450" Width="400"
         WindowStartupLocation="CenterScreen" Icon="/Images/Plus32.png">
 
     <Grid>
-        <Button x:Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Center" Margin="0,344,0,0" VerticalAlignment="Top" Click="ButtonAdd_Click" />
-        <TextBlock HorizontalAlignment="Left" Margin="66,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="90"><Run Text="Наименование оборудова"/><Run Language="ru-ru" Text="н"/><Run Text="ия "/></TextBlock>
-        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="176,51,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169"/>
-        <TextBlock HorizontalAlignment="Left" Margin="60,111,0,0" TextWrapping="Wrap" Text="Инвентарный №" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="66,222,0,0" TextWrapping="Wrap" Text="Год установки" VerticalAlignment="Top"/>
-        <DatePicker Name="datePicker" HorizontalAlignment="Left" Margin="176,217,0,0" VerticalAlignment="Top" Width="169"/>
-        <TextBlock HorizontalAlignment="Left" Margin="66,160,0,0" TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top"/>
-        <TextBox x:Name="textboxPrice" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169" Margin="176,156,0,0"/>
-        <TextBox x:Name="textboxInventoryNumber" HorizontalAlignment="Left" Margin="176,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
-        <TextBlock HorizontalAlignment="Left" Margin="66,283,0,0" TextWrapping="Wrap" Text="Марка" VerticalAlignment="Top"/>
-        <ComboBox Name="comboBoxMark" HorizontalAlignment="Left" Margin="176,279,0,0" VerticalAlignment="Top" Width="169"/>
+        <Button x:Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Center" Margin="0,373,0,0" VerticalAlignment="Top" Click="ButtonAdd_Click" Background="#FFFFB800" BorderBrush="#FFFFB800" FontFamily="Arial Black" Foreground="#DD000000" />
+        <TextBlock HorizontalAlignment="Left" Margin="30,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="125" FontFamily="Arial Black" FontSize="14"><Run Text="Наименование оборудова"/><Run Language="ru-ru" Text="н"/><Run Text="ия "/></TextBlock>
+        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="175,56,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="197" FontFamily="Arial" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,122,0,0" TextWrapping="Wrap" Text="Инвентарный №" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,233,0,0" TextWrapping="Wrap" Text="Год установки" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <DatePicker Name="datePicker" HorizontalAlignment="Left" Margin="175,222,0,0" VerticalAlignment="Top" Width="197" FontFamily="Arial" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,172,0,0" TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <TextBox x:Name="textboxPrice" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Width="197" Margin="175,161,0,0" FontFamily="Arial" FontSize="14"/>
+        <TextBox x:Name="textboxInventoryNumber" HorizontalAlignment="Left" Margin="175,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" FontFamily="Arial" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,295,0,0" TextWrapping="Wrap" Text="Марка" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <ComboBox Name="comboBoxMark" HorizontalAlignment="Left" Margin="175,284,0,0" VerticalAlignment="Top" Width="197" FontFamily="Arial" FontSize="14"/>
+        <Label x:Name="labelAddError" Content="" HorizontalContentAlignment="Center" Foreground="Red" HorizontalAlignment="Center" Margin="0,333,0,0" VerticalAlignment="Top" Width="268" FontFamily="Arial Black" FontSize="14"/>
     </Grid>
 </Window>

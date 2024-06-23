@@ -23,7 +23,7 @@
                 <ImageBrush ImageSource="/Images/Reload32.png"/>
             </Button.Background>
         </Button>
-        <ListView x:Name="listviewSuppliers" Grid.Row="1" Grid.Column="0" Margin="0,50,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+        <ListView x:Name="listviewSuppliers" Grid.Row="1" Grid.Column="0" Margin="0,50,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontFamily="Arial" FontSize="14">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>

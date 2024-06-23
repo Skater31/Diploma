@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client.EditWindows"
         mc:Ignorable="d"
-        Title="EquipmentEditWindow" Height="450" Width="400" 
-        WindowStartupLocation="CenterScreen">
+        Title="Редактирование оборудования" Height="450" Width="400" 
+        WindowStartupLocation="CenterScreen" Icon="/Images/pen32.png">
     <Grid>
-        <Button x:Name="ButtonEdit" Content="Изменить" HorizontalAlignment="Left" Margin="152,344,0,0" VerticalAlignment="Top" Click="ButtonEdit_Click" />
-        <TextBlock HorizontalAlignment="Left" Margin="66,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="90"><Run Text="Наименование оборудова"/><Run Language="ru-ru" Text="н"/><Run Text="ия "/></TextBlock>
-        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="176,51,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169"/>
-        <TextBlock HorizontalAlignment="Left" Margin="60,111,0,0" TextWrapping="Wrap" Text="Инвентарный №" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="66,222,0,0" TextWrapping="Wrap" Text="Год установки" VerticalAlignment="Top"/>
-        <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Margin="176,217,0,0" VerticalAlignment="Top" Width="169"/>
-        <TextBlock HorizontalAlignment="Left" Margin="66,160,0,0" TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top"/>
-        <TextBox x:Name="textboxPrice" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169" Margin="176,156,0,0"/>
-        <TextBox x:Name="textboxInventoryNumber" HorizontalAlignment="Left" Margin="176,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
-        <TextBlock HorizontalAlignment="Left" Margin="66,283,0,0" TextWrapping="Wrap" Text="Марка" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBoxMark" HorizontalAlignment="Left" Margin="176,279,0,0" VerticalAlignment="Top" Width="169"/>
+        <Button x:Name="ButtonEdit" Content="Изменить" HorizontalAlignment="Left" Margin="152,354,0,0" VerticalAlignment="Top" Click="ButtonEdit_Click" Background="#FFFFB800" BorderBrush="#FFFFB800" FontFamily="Arial Black" Foreground="#DD000000" />
+        <TextBlock HorizontalAlignment="Left" Margin="50,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="123" FontFamily="Arial Black" FontSize="14"><Run Text="Наименование оборудова"/><Run Language="ru-ru" Text="н"/><Run Text="ия "/></TextBlock>
+        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="205,60,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169" FontFamily="Arial"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,111,0,0" TextWrapping="Wrap" Text="Инвентарный №" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,222,0,0" TextWrapping="Wrap" Text="Год установки" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Margin="205,226,0,0" VerticalAlignment="Top" Width="169" FontFamily="Arial"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,160,0,0" TextWrapping="Wrap" Text="Цена" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <TextBox x:Name="textboxPrice" HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169" Margin="205,165,0,0" FontFamily="Arial"/>
+        <TextBox x:Name="textboxInventoryNumber" HorizontalAlignment="Left" Margin="205,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" FontFamily="Arial"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,291,0,0" TextWrapping="Wrap" Text="Марка" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <ComboBox x:Name="comboBoxMark" HorizontalAlignment="Left" Margin="205,288,0,0" VerticalAlignment="Top" Width="169" FontFamily="Arial"/>
 
     </Grid>
 </Window>

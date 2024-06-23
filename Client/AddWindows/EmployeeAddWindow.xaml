@@ -8,10 +8,10 @@
         Title="Добавить работника" Height="250" Width="400"
         WindowStartupLocation="CenterScreen" Icon="/Images/Plus32.png">
     <Grid>
-        <Button x:Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Center" Margin="0,174,0,0" VerticalAlignment="Top" Click="ButtonAdd_Click" />
-        <TextBlock HorizontalAlignment="Left" Margin="83,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="36"><Run Text="ФИО"/></TextBlock>
-        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="179,44,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169"/>
-        <TextBlock HorizontalAlignment="Left" Margin="69,107,0,0" TextWrapping="Wrap" Text="Должность" VerticalAlignment="Top"/>
-        <ComboBox Name="comboBoxPosition" HorizontalAlignment="Left" Margin="179,103,0,0" VerticalAlignment="Top" Width="169"/>
+        <Button x:Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Center" Margin="0,174,0,0" VerticalAlignment="Top" Click="ButtonAdd_Click" FontFamily="Arial Black" FontSize="14" Background="#FFFF8A00" BorderBrush="#FFFF8A00" Foreground="#DD000000" />
+        <TextBlock HorizontalAlignment="Left" Margin="28,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="52" FontFamily="Arial Black" FontSize="14"><Run Text="ФИО"/></TextBlock>
+        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="138,46,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="201"/>
+        <TextBlock HorizontalAlignment="Left" Margin="28,121,0,0" TextWrapping="Wrap" Text="Должность" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <ComboBox Name="comboBoxPosition" HorizontalAlignment="Left" Margin="138,117,0,0" VerticalAlignment="Top" Width="201"/>
     </Grid>
 </Window>

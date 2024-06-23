@@ -57,6 +57,10 @@ namespace Client
 
                 Close();
             }
+            else
+            {
+                labelAddError.Content = "Не все поля заполнены";
+            }
         }
 
         private async void LoadMarks()

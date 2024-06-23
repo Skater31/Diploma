@@ -13,6 +13,14 @@ namespace Server_SIde.DAL
             //Database.EnsureCreated();
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Employee>()
+                .HasMany(c => c.FreeEquipment)
+                .WithOne(x => x.Employee)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Equipment> Equipments { get; set; }
         public DbSet<FreeEquipment> FreeEquipments { get; set; }

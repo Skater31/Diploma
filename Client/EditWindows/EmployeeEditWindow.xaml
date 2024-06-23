@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client.EditWindows"
         mc:Ignorable="d"
-        Title="EmployeeEditWindow" Height="250" Width="400"
-        WindowStartupLocation="CenterScreen">
+        Title="Редактирование работников" Height="250" Width="400"
+        WindowStartupLocation="CenterScreen" Icon="/Images/pen32.png">
     <Grid>
-        <Button x:Name="ButtonEdit" Content="Изменить" HorizontalAlignment="Center" Margin="0,174,0,0" VerticalAlignment="Top" Click="ButtonEdit_Click" />
-        <TextBlock HorizontalAlignment="Left" Margin="83,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="36"><Run Text="ФИО"/></TextBlock>
-        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="179,44,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169"/>
-        <TextBlock HorizontalAlignment="Left" Margin="69,107,0,0" TextWrapping="Wrap" Text="Марка" VerticalAlignment="Top"/>
-        <ComboBox Name="comboBoxPosition" HorizontalAlignment="Left" Margin="179,103,0,0" VerticalAlignment="Top" Width="169"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="ButtonEdit" Content="Изменить" HorizontalAlignment="Center" Margin="0,174,0,0" VerticalAlignment="Top" Click="ButtonEdit_Click" FontFamily="Arial Black" Background="#FFFFB800" BorderBrush="#FFFFB800" Foreground="#DD000000" />
+        <TextBlock HorizontalAlignment="Left" Margin="46,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="42" FontFamily="Arial Black" FontSize="14"><Run Text="ФИО"/></TextBlock>
+        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="151,44,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="197" FontFamily="Arial" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="46,115,0,0" TextWrapping="Wrap" Text="Должность" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <ComboBox Name="comboBoxPosition" HorizontalAlignment="Left" Margin="151,111,0,0" Width="197" FontFamily="Arial" FontSize="14" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -32,7 +32,7 @@ namespace Client
         {
             _equipmentConnection = new EquipmentConnection();
             _freeEquipmentConnection = new FreeEquipmentConnection();
-
+           
             InitializeComponent();
 
             LoadEquipment();
@@ -209,7 +209,7 @@ namespace Client
             }
         }
 
-        private async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
+        public async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
         {
             var tabItemName = ((TabItem)tabControl.SelectedItem).Name;
 

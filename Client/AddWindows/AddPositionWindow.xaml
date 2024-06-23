@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client.AddWindows"
         mc:Ignorable="d"
-        Title="Добавить должность" Height="200" Width="400"
+        Title="Добавить должность" Height="211" Width="400"
         WindowStartupLocation="CenterScreen" Icon="/Images/Plus32.png">
     <Grid>
-        <Button x:Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Center" Margin="0,124,0,0" VerticalAlignment="Top" Click="ButtonAdd_Click" />
-        <TextBlock HorizontalAlignment="Left" Margin="81,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="70"><Run Text="Должность"/></TextBlock>
-        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="177,41,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="169"/>
+        <Button x:Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Center" Margin="0,137,0,0" VerticalAlignment="Top" Click="ButtonAdd_Click" FontFamily="Arial Black" Background="#FFFF8A00" BorderBrush="#FFFF8A00" Foreground="#DD050000" />
+        <TextBlock HorizontalAlignment="Left" Margin="32,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Height="19" Width="105" FontFamily="Arial Black" FontSize="14"><Run Text="Должность"/></TextBlock>
+        <TextBox x:Name="textboxName" HorizontalAlignment="Left" Margin="152,0,0,0" TextWrapping="NoWrap" VerticalAlignment="Center" Width="221" FontFamily="Arial" FontSize="14"/>
     </Grid>
 </Window>
